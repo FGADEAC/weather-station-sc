@@ -3,5 +3,6 @@ const router = express.Router();
 const controller = require('../controller/weather-station');
 
 router.get('/', controller.get);
+router.post('/', controller.post)
 
 module.exports = router;
