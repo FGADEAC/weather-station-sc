@@ -1,0 +1,29 @@
+{
+  "name": "weather-station-sc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FGADEAC/weather-station-sc.git"
+  },
+  "keywords": [
+    "Node.js",
+    "JavaScript",
+    "Raspberrypi",
+    "REST",
+    "API"
+  ],
+  "author": "Felipe Gadea Castro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FGADEAC/weather-station-sc/issues"
+  },
+  "homepage": "https://github.com/FGADEAC/weather-station-sc#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0"
+  }
+}
