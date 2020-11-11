@@ -6,4 +6,7 @@ const server = http.createServer(app);
 
 server.listen(port);
 
-console.log('Server is running in port: ', port);
+app.listen(app.get('port'), () => {
+    console.log('Server is running in port: ', port);
+})
+
