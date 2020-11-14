@@ -1,19 +1,54 @@
+const recoveredData = require('../models/recoveredData');
+const mongoose = require("mongoose");
 const weatherStation = {};
 
-
+// todo filter get request
 weatherStation.get = (req, res) => {
-    
-    return res.status(200).json({
-        message: "Hola mundo"
-    })
+    recoveredData.find()
+    .then(result => {
+        console.log(result);
+        res.status(201).json({
+          message: "GET",
+          result: result
+        });
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json({
+          error: err
+        });
+      });
 };
 
 weatherStation.post = (req, res) => {
     console.log(req.body)
-    const sensor1 = req.body.sensor1;
-    return res.status(200).json({
-        message: `Hola mundo: ${sensor1}`
+    const data = new recoveredData({
+        _id: new mongoose.Types.ObjectId(),
+        // date: new Date(), // todo implement date
+        temperatura: req.body.temperatura,
+        presion_barometrica: req.body.presion_barometrica,
+        humedad: req.body.humedad,
+        luminosidad: req.body.luminosidad,
+        precipitacion: req.body.precipitacion,
+        velocidad_viento: req.body.velocidad_viento,
+        direccion_viento: req.body.direccion_viento
     })
+
+    data
+        .save()
+        .then(result => {
+          console.log(result);
+          res.status(201).json({
+            message: "POST realizado",
+            result: result
+          });
+        })
+        .catch(err => {
+          console.log(err);
+          res.status(500).json({
+            error: err
+          });
+        });
 };
 
 module.exports = weatherStation;
