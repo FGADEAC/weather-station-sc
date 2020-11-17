@@ -1,10 +1,13 @@
 const bodyParse = require('body-parser');
 const express = require('express');
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
 const app = express();
 
+dotenv.config();
+
 // conect DB
-mongoose.connect("mongodb://localhost:27017/test",{useNewUrlParser:true}); // todo implement string connection as .env var
+mongoose.connect(process.env.DB_CONNECTION,{useNewUrlParser:true}); // todo implement string connection as .env var
 mongoose.Promise = global.Promise;
 
 // middleware 
