@@ -6,7 +6,6 @@ const weatherStation = {};
 weatherStation.get = (req, res) => {
     recoveredData.find()
     .then(result => {
-        console.log(result);
         res.status(201).json({
           message: "GET",
           result: result
@@ -21,10 +20,10 @@ weatherStation.get = (req, res) => {
 };
 
 weatherStation.post = (req, res) => {
-    console.log(req.body)
+    
     const data = new recoveredData({
         _id: new mongoose.Types.ObjectId(),
-        // date: new Date(), // todo implement date
+        date: new Date(),
         temperatura: req.body.temperatura,
         presion_barometrica: req.body.presion_barometrica,
         humedad: req.body.humedad,
@@ -37,7 +36,6 @@ weatherStation.post = (req, res) => {
     data
         .save()
         .then(result => {
-          console.log(result);
           res.status(201).json({
             message: "POST realizado",
             result: result

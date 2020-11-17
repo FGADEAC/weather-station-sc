@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const recoveredDataSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
-    //date: new Date, // todo implement date
+    date: Date,
     temperatura: {type:Number, required: false},
     presion_barometrica: {type:Number, required: false},
     humedad: {type:Number, required: false},
